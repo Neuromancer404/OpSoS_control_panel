@@ -7,14 +7,9 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 
-import java.io.File;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class HelloController {
     @FXML
@@ -98,13 +93,23 @@ public class HelloController {
         Image image = new Image(imagePath);
         gc.drawImage(image, 0, 0, pickW, pickH);
         for(station st : stationList){
-            clickHandler(st.getX(), st.getY(), true);
+            switch (st.getType()){
+                case 1:
+                    clickHandler(st.getX(), st.getY(), true, "blue");
+                    break;
+                case 2:
+                    clickHandler(st.getX(), st.getY(), true, "green");
+                    break;
+                case 3:
+                    clickHandler(st.getX(), st.getY(), true, "red");
+                    break;
+            }
         }
     }
 
-    private void clickHandler(double x, double y, boolean b) {
+    private void clickHandler(double x, double y, boolean b, String color) {
         if(x<pickW && y< pickH){
-            String imagePath = "dot.png";
+            String imagePath = color+"Dot.png";
             Image image = new Image(imagePath);
             gc.drawImage(image, x+15, y-15, x-(15+x), y+(15-y));
             xCoordinates.setText(String.valueOf(x));
