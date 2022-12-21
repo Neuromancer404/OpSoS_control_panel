@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -18,6 +25,84 @@
         </rowConstraints>
          <children>
             <Canvas fx:id="canvas" height="950.0" width="1243.0" />
+            <GridPane GridPane.columnIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="1080.0" minHeight="10.0" prefHeight="1014.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Добавление">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <GridPane layoutX="1.0" layoutY="1.0" prefHeight="1048.0" prefWidth="677.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <GridPane>
+                                            <columnConstraints>
+                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="333.0" minWidth="10.0" prefWidth="53.0" />
+                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="589.0" minWidth="10.0" prefWidth="148.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="589.0" minWidth="10.0" prefWidth="147.0" />
+                                                <ColumnConstraints halignment="LEFT" maxWidth="589.0" minWidth="10.0" prefWidth="313.0" />
+                                                <ColumnConstraints halignment="LEFT" maxWidth="589.0" minWidth="10.0" prefWidth="38.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="X:" />
+                                                <Label text="Y:" GridPane.rowIndex="1" />
+                                                <TextField GridPane.columnIndex="1" fx:id="xCoordinates" />
+                                                <TextField fx:id="yCoordinates" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Button mnemonicParsing="false" onMouseClicked="#addItemToMap" text="Добавить" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label text="Описание:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                <TextArea fx:id="description" prefHeight="200.0" prefWidth="316.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                <GridPane GridPane.columnIndex="3">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <RadioButton fx:id="type1" mnemonicParsing="false" text="Макросота" />
+                                                      <RadioButton fx:id="type2" mnemonicParsing="false" text="Микросота" GridPane.rowIndex="1" />
+                                                      <RadioButton fx:id="type3" mnemonicParsing="false" text="Пикосота" GridPane.rowIndex="2" />
+                                                   </children>
+                                                </GridPane>
+                                                <Label text="Тип станции:" GridPane.columnIndex="2" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </GridPane>
          </children>
       </GridPane>
    </children>
