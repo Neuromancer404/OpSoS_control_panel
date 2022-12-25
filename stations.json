@@ -1,0 +1,14 @@
+{
+	"stationNum_1":{
+		"Xcoord":93.0,
+		"Ycoord":131.0,
+		"Description":пизда хохлам,
+		"Type":1,
+	}
+	"stationNum_2":{
+		"Xcoord":731.0,
+		"Ycoord":61.0,
+		"Description":пизда фином,
+		"Type":2,
+	}
+}

@@ -13,13 +13,14 @@ import java.util.List;
 
 public class HelloController {
     @FXML
+    private ListView<?> listView;
+    @FXML
     private ImageView imageView;
     private int pickH = 850;
     private int pickW = 1100;
     @FXML private Canvas canvas ;
     @FXML
     private TextField xCoordinates;
-
     @FXML
     private TextField yCoordinates;
     private GraphicsContext gc ;
@@ -29,7 +30,8 @@ public class HelloController {
         type1.setToggleGroup(group);
         type2.setToggleGroup(group);
         type3.setToggleGroup(group);
-
+        jsonReader jsnReader = new jsonReader();
+        stationList = jsnReader.readStations();
         canvas.setOnMouseClicked(event -> {
             clickHandler(event.getX(), event.getY());
         });
@@ -69,12 +71,14 @@ public class HelloController {
             }
             stationList.add(st);
             doCanvasWork();
+            jsonWriter jsnWriter = new jsonWriter();
+            jsnWriter.writing(stationList);
+
         }
         catch (Exception ex){
             System.out.println(ex);
         }
     }
-
 
     private void clickHandler(double x, double y) {
         if(x<pickW && y< pickH){
